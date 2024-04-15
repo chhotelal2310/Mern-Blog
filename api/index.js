@@ -1,5 +1,6 @@
 import express from 'express';
 import DBconnect from './config/database.js';
+import userRoutes from './routes/user.route.js'
 
 const app=express();
 
@@ -7,9 +8,9 @@ const app=express();
 DBconnect();
 
 
-
-
 app.listen(process.env.PORT,()=>{
     console.log(`server run on the port ${process.env.PORT}`);
 })
+
+app.use('/api/user',userRoutes);
 
